@@ -1,8 +1,10 @@
 let express = require("express");
 let app = express();
-const absolutePath = __dirname;
+
+app.use("/public", express.static(__dirname + "/public"));
+
 app.get("/", (req, res) => {
-  res.sendFile(absolutePath + "/views/index.html");
+  res.sendFile(__dirname + "/views/index.html");
 });
 
 console.log("Hello World");
